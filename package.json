@@ -1,0 +1,68 @@
+{
+  "name": "electron-update-app-example",
+  "version": "0.0.1",
+  "description": "An example app with auto update",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauricehofman/electron-update-app-example.git"
+  },
+  "author": {
+    "name": "Maurice Hofman",
+    "email": "maurice@divtag.nl"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauricehofman/electron-update-app-example/issues"
+  },
+  "homepage": "https://github.com/mauricehofman/electron-update-app-example#readme",
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-builder": "^20.6.2",
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {
+    "electron-log": "^2.2.14",
+    "electron-updater": "^2.21.3"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://127.0.0.1:8080/"
+      }
+    ],
+    "appId": "zorgsom-client",
+    "icon": "build/icon.png",
+    "mac": {
+      "category": "public.app-category.business",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    },
+    "linux": {
+      "category": "public.app-category.office",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "NSIS",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    }
+  }
+}
